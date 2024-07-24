@@ -1,0 +1,42 @@
+<app-head></app-head>
+<div style="margin-top: 90px;">
+    <div class="d-flex flex-column justify-content-center align-items-center ">
+        <div class="row border rounded shadow p-5 mt-4">
+            <div class="col-lg-6">
+                <img class="img-fluid" src="https://png.pngtree.com/png-clipart/20191122/original/pngtree-user-icon-isolated-on-abstract-background-png-image_5192004.jpg" alt="no image" style="width: 300px; height: 300px; margin-top: 25px;">
+            </div>
+            <div class="col-lg-6 primary">
+                <div style="height: 100%;" class="d-flex flex-column align-items-center">
+                    <h3 class="fw-bolder"><b>WELCOME</b> </h3>
+
+                    <form [formGroup]="loginForm" class="mt-3" (ngSubmit)="login()">
+                        
+
+                        <div class="mb-3">
+                            <input type="text" placeholder="E-mail Id " class="form-control" style="width: 300px; height: 50px;" formControlName="email">
+                        </div>
+
+                        <!-- validation error -->
+                        <div *ngIf="this.loginForm.get('email')?.errors&&this.loginForm.get('email')?.touched" class="fw-bolder text-danger">Invalid Email</div>
+
+
+                        <div class="mb-3">
+                            <input type="password" placeholder="Password " class="form-control" style="width: 300px; height: 50px;" formControlName="password">
+                        </div>
+
+                        <!-- validation error -->
+                        <div *ngIf="this.loginForm.get('password')?.errors&&this.loginForm.get('password')?.touched" class="fw-bolder text-danger">Invalid Password</div>
+
+
+                        <input type="submit" class="btn mb-2" value="Login" style="width: 300px; height: 50px; 
+                        background-color: rgba(96, 7, 151, 0.542);
+
+                        ">
+                    </form>
+
+                    <p>Create an Account Click Here <a routerLink="/register">register</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

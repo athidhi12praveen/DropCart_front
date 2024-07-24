@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class=" d-flex  items-center m-auto shadow-md mt-5 ms-2  " style="justify-content: space-around;">
+
+        <a (click)="filter('')" >
+            <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzTi-slD-vRq6SJHOl0foN1s6juOYYcztzKGFCIVfUj3WucSClB7ZkGlLhKyfT21_v3o8&usqp=CAU" alt="No image" style="width: 80px; height: 80px; border-radius: 80px;">
+            <h4 class="font-bold">All Ptoducts</h4>
+        </a>
+
+        <a (click)="filter('electronics')" class=" ">
+            <img  src="https://blog.saginfotech.com/wp-content/uploads/2017/06/gst-electronics-discount.jpg" alt="No image" style="width: 80px; height: 80px; border-radius: 80px;">
+            <h4 class="font-bold">Electronics</h4>
+        </a>
+
+        <a (click)="filter('fashion')" class=" ">
+            <img  src="https://t4.ftcdn.net/jpg/04/84/87/61/360_F_484876187_u6HIlCgA2iZdfkoOamuQa43OJH2zaDVR.jpg" alt="No image" style="width: 80px; height: 80px; border-radius: 80px;">
+            <h4 class="font-bold">Fashion</h4>
+        </a>
+
+        <a (click)="filter('jewelery')" class=" ">
+            <img  src="https://i.pinimg.com/736x/ff/9c/20/ff9c204f62b65141a988cde3c7b1484f.jpg" alt="No image" style="width: 80px; height: 80px; border-radius: 80px;">
+            <h4 class="font-bold">Jewellry</h4>
+        </a>
+
+    </div>
+</div>
+
+
+<div style="margin-top: 10px;">
+    <section class="pt-4">
+            <div class="container ">
+                <div class="row justify-content-center ">
+                        <div *ngFor="let product of filterCategory | filter : searchKey : 'title'" class="card  mb-5 me-4 ms-4" style="width: 17rem;">
+                            <!-- Product image-->
+                            <img class="card-img-top" [src]="product.image" alt="..." style="height: 250px; cursor: pointer; width: 100%;" routerLink="/product/view/{{product.id}}" />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{product.title.slice(0,15)}}...</h5>
+                                    <!-- Product price-->
+                                    {{product.price}}
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="addtocart(product)">Add to Cart</a></div>
+                            </div>
+                        </div>
+                    
+                    
+                </div>
+            </div>
+    </section>
+</div>
+
+<app-footer></app-footer>
